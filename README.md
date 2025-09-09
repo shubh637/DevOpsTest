@@ -11,6 +11,7 @@
 8. [Flash Messages](#flash-messages)
 9. [Pagination](#pagination)
 10. [RESTful APIs](#restful-apis)
+11. [Model Commands](#model-commands)
 
 ---
 
@@ -122,7 +123,7 @@ def create_app():
 
 ---
 
-## Database Setup with SQLAlchemy <a name=""database-setup-with-sqlalchemy""></a>
+## Database Setup with SQLAlchemy 
 
 ### Configuration
 ```python
@@ -295,7 +296,7 @@ def logout():
 
 ---
 
-## CRUD Operations <a name=""crud-operations""></a>
+## CRUD Operations 
 
 ### Create Workout
 ```python
@@ -371,7 +372,7 @@ def delete_workout(workout_id):
 
 ---
 
-## Flash Messages <a name=""flash-messages""></a>
+## Flash Messages 
 
 ### Displaying Flash Messages
 ```html
@@ -430,7 +431,7 @@ def workouts():
 
 ---
 
-## RESTful APIs <a name=""restful-apis""></a>
+## RESTful APIs 
 
 ### Installing Flask-RESTful
 ```bash
@@ -545,7 +546,7 @@ class ToDo(Resource):
 
 ---
 
-# Model commands
+# Model Commands
 ```python
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
