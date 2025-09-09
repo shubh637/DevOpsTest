@@ -20,8 +20,7 @@ Flask is a lightweight web application framework designed for quick development 
 
 ---
 
-## Setting Up Development Environment <a name=""setting-up-development-environment""></a>
-
+## Setting Up Development Environment 
 ### Virtual Environment Setup
 ```bash
 # Create virtual environment
