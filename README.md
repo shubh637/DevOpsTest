@@ -1,7 +1,7 @@
 # Flask Web Development Guide
 
 ## Table of Contents
-1. [Introduction to Flask](#introduction-to-flask)
+1. [Introduction to Flask](##introduction-to-flask)
 2. [Setting Up Development Environment](#setting-up-development-environment)
 3. [Creating Your First Flask App](#creating-your-first-flask-app)
 4. [Blueprint Architecture](#blueprint-architecture)
