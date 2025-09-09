@@ -1,0 +1,16 @@
+/* Apply 'Arvo' font to headings and paragraphs */
+h1, h2, h4, p {
+    font-family: "Arvo", serif;
+  }
+  
+  /* Paragraph font size */
+  p {
+    font-size: 17px;
+    line-height: 1.5; /* improves readability */
+  }
+  
+  /* Padding shorthand for intro section */
+  #intro {
+    padding: 5px;
+  }
+  

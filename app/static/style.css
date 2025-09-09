@@ -1,0 +1,35 @@
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0077cc; /* Bold blue */
+  padding: 1rem 2rem;
+  color: white;
+}
+
+/* Navbar links */
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for links */
+.navbar a:hover {
+  text-decoration: underline;
+  color: #e0e0e0; /* Slightly lighter on hover */
+}
+
+/* Container for nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+/* General page content padding */
+.content {
+  padding: 2rem;
+}

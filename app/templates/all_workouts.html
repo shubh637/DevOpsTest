@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='extended_beauty.css') }}">
+{% endblock %}
+
+{% block content %}
+<h1>Welcome, {{ user.name }}!</h1>
+
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="mt-3">
+      {% for message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<!-- Workout Table -->
+<div class="mt-4">
+  <table class="table table-hover" style="width: 100%; max-width: 800px;">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Number of Push-Ups</th>
+        <th scope="col">Performed At</th>
+        <th scope="col">Comments</th>
+        <th scope="col" colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for workout in workouts.items %}
+      <tr>
+        <td>{{ workout.pushups }}</td>
+        <td>{{ workout.date_posted.strftime('%m/%d/%Y') }}</td>
+        <td>{{ workout.comment }}</td>
+        <td>
+          <a href="{{ url_for('main.update_workout', workout_id=workout.id) }}" class="btn btn-outline-primary btn-sm">Edit</a>
+        </td>
+        <td>
+          <a href="{{ url_for('main.delete_workout', workout_id=workout.id) }}" class="btn btn-outline-danger btn-sm">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  {% if workouts.pages > 1 %}
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      {% for page_num in workouts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=1) %}
+        {% if page_num %}
+          {% if workouts.page == page_num %}
+            <li class="page-item active"><span class="page-link">{{ page_num }}</span></li>
+          {% else %}
+            <li class="page-item">
+              <a class="page-link" href="{{ url_for('main.user_workouts', page=page_num) }}">{{ page_num }}</a>
+            </li>
+          {% endif %}
+        {% else %}
+          <li class="page-item disabled"><span class="page-link">…</span></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+  {% endif %}
+</div>
+{% endblock %}
