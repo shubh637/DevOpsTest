@@ -546,6 +546,104 @@ class ToDo(Resource):
 
 ---
 
+# Model commands
+```python
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import or_, and_
+
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///example.db'
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+
+
+# 🔍 Querying with model.query
+# Get all records
+users = User.query.all()
+
+
+# Get first record
+user = User.query.first()
+
+# Get by primary key
+user = User.query.get(1)
+
+# Filter by column (keyword style)
+user = User.query.filter_by(username='john').first()
+
+# Filter by column (expression style)
+user = User.query.filter(User.username == 'john').first()
+
+# Multiple filters (AND)
+users = User.query.filter(
+    User.username == 'john',
+    User.email.like('%example.com')
+).all()
+
+# OR condition
+users = User.query.filter(
+    or_(
+        User.username == 'john',
+        User.email == 'john@example.com'
+    )
+).all()
+
+# AND condition
+users = User.query.filter(
+    and_(
+        User.username == 'john',
+        User.email.like('%example.com')
+    )
+).all()
+
+# Order by ascending
+users = User.query.order_by(User.username.asc()).all()
+
+# Order by descending
+users = User.query.order_by(User.username.desc()).all()
+
+# Limit results
+users = User.query.limit(5).all()
+
+# Offset results
+users = User.query.offset(10).all()
+
+# Count rows
+total_users = User.query.count()
+
+# Get distinct values
+distinct_emails = db.session.query(User.email).distinct().all()
+
+# Check if record exists
+exists = db.session.query(
+    User.query.filter_by(username='john').exists()
+).scalar()
+
+# Get or 404 (Flask-SQLAlchemy)
+from flask import abort
+user = User.query.get_or_404(1)
+
+# Filter with IN
+users = User.query.filter(User.username.in_(['john', 'jane'])).all()
+
+# Filter with NOT IN
+users = User.query.filter(~User.username.in_(['john', 'jane'])).all()
+
+# Chain multiple modifiers
+users = User.query \
+    .filter(User.email.like('%@example.com')) \
+    .order_by(User.username.desc()) \
+    .limit(10) \
+    .offset(5) \
+    .all()
+
+```
 ## Conclusion
 
 This guide covers the essential aspects of Flask web development, from basic setup to advanced features like RESTful APIs. Use this as a reference for your Flask projects, and customize the code according to your specific needs.
