@@ -44,8 +44,7 @@ pip install -r requirements.txt
 
 ---
 
-## Creating Your First Flask App <a name=""creating-your-first-flask-app""></a>
-
+## Creating Your First Flask App <
 ### Basic Application Structure
 ```python
 # __init__.py
@@ -64,7 +63,7 @@ flask run
 
 ---
 
-## Blueprint Architecture <a name=""blueprint-architecture""></a>
+## Blueprint Architecture 
 
 Blueprints help organize your app into smaller, manageable components.
 
@@ -188,7 +187,7 @@ class Workout(db.Model):
 
 ---
 
-## User Authentication <a name=""user-authentication""></a>
+## User Authentication 
 
 ### Login Setup
 ```python
@@ -395,7 +394,7 @@ flash('Your message here', 'category')  # Category is optional
 
 ---
 
-## Pagination <a name=""pagination""></a>
+## Pagination 
 
 ### Implementing Pagination
 ```python
