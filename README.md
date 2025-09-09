@@ -14,7 +14,7 @@
 
 ---
 
-## Introduction to Flask <a name=""introduction-to-flask""></a>
+## Introduction to Flask 
 
 Flask is a lightweight web application framework designed for quick development with the ability to scale up to complex applications. It provides simplicity and flexibility for web development.
 
